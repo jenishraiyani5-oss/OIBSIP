@@ -75,7 +75,7 @@ All rules above are automated in [`ufw_configuration.sh`](./ufw_configuration.sh
 ```bash
 chmod +x ufw_configuration.sh
 sudo ./ufw_configuration.sh
-```
+
 ```
 
 The script installs UFW, sets default policies, applies all allow/deny rules in sequence, enables UFW, and prints the final verified rule set.
