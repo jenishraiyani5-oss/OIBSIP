@@ -46,7 +46,8 @@ This project uses Nmap installed on a Kali Linux virtual machine (VirtualBox), w
 
 5. If Nmap is not pre-installed (e.g., on a plain Ubuntu VM), it can be installed with:
 
-   sudo apt update
+   sudo apt update,
+   
    sudo apt install nmap -y
 
 Screenshort 
