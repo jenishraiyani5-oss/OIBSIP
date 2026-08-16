@@ -97,7 +97,7 @@ Notably, `admin` and `smithy` share the identical hash — this is the well-know
 ├── README.md
 ├── sql_injection_notes.md
 ├── security_level_low.png
-├── payload1png
+├── payload1.png
 └── payload2.png
 ```
 
