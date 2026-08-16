@@ -67,34 +67,6 @@ Anywhere                   DENY IN     203.0.113.0/24
 
 Screenshot of the actual output: `screenshots/ufw_status_verbose.png`
 
----
-
-## Testing That Denied Traffic Is Actually Blocked
-
-**Method used:** From a second machine (or another terminal) on the same network, attempted to connect to the denied port (HTTP/80) on the firewalled host, and confirmed the connection failed/timed out, while an allowed port succeeded.
-
-1. **Test the denied port (80/HTTP):**
-   ```bash
-   curl -v http://<firewalled-host-IP>
-   ```
-   or
-   ```bash
-   nc -zv <firewalled-host-IP> 80
-   ```
-   Expected result: connection times out / refused — confirms port 80 is blocked.
-
-2. **Test the allowed port (22/SSH) as a control/comparison:**
-   ```bash
-   nc -zv <firewalled-host-IP> 22
-   ```
-   Expected result: connection succeeds — confirms UFW is only blocking what it's supposed to, not everything.
-
-3. **Test the denied IP range:**
-   From a machine whose IP falls within `203.0.113.0/24` (or by temporarily adding your own test machine's subnet to the deny rule), attempt any connection to the host and confirm it is refused, while the same request from a machine outside that range succeeds.
-
-Screenshot of testing output: `screenshots/ufw_test_blocked_traffic.png`
-
----
 
 ## Running the Configuration Script
 
