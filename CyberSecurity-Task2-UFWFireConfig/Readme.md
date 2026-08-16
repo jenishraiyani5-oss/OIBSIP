@@ -1,4 +1,3 @@
-
 # Task · Basic Firewall Configuration with UFW
 
 ## Objective
@@ -66,7 +65,7 @@ Anywhere                   DENY IN     203.0.113.0/24
 443/tcp (v6)                ALLOW IN    Anywhere (v6)
 ```
 
-Screenshot of the actual output: ufw_status_verbose.png
+Screenshot of the actual output: ![alt text](ufw_status_verbose.png)
 
 
 ## Running the Configuration Script
