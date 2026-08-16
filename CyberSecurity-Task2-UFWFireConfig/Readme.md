@@ -72,6 +72,8 @@ Screenshot of the actual output: `screenshots/ufw_status_verbose.png`
 
 All rules above are automated in [`ufw_configuration.sh`](./ufw_configuration.sh). To apply them:
 
+```
+
 ```bash
 chmod +x ufw_configuration.sh
 sudo ./ufw_configuration.sh
