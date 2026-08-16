@@ -1,7 +1,7 @@
 ========================================================
 NMAP SCAN RESULTS - Task 1: Basic Network Scanning
 ========================================================
-
+##cat nmap_scan_results.txt
 # Nmap 7.99 scan initiated Sun Aug 16 01:15:57 2026 as: /usr/lib/nmap/nmap -sV -O -oN nmap_scan_results.txt 192.168.179.155
 # Nmap done at Sun Aug 16 01:15:59 2026 -- 1 IP address (0 hosts up) scanned in 2.90 seconds
 
