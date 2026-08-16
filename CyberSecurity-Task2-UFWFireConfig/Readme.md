@@ -65,9 +65,6 @@ Anywhere                   DENY IN     203.0.113.0/24
 443/tcp (v6)                ALLOW IN    Anywhere (v6)
 ```
 
-Screenshot of the actual output: ![alt text](ufw_status_verbose.png)
-
-
 ## Running the Configuration Script
 
 All rules above are automated in [`ufw_configuration.sh`](./ufw_configuration.sh). To apply them:
