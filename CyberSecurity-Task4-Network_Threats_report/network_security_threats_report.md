@@ -97,9 +97,8 @@ In April 2018, attackers executed a BGP hijack against Amazon's Route 53 DNS ser
 
 ---
 
-## Conclusion: Key Takeaways for a Network Administrator
-
-1. **Don't trust the protocols by default.** TCP/IP, DNS, and BGP were built for connectivity, not authentication — use safeguards like BCP 38, DNSSEC, and RPKI, and never rely on IP address alone for security.
-2. **Layer your defenses.** No single control stops every threat — combine DDoS scrubbing, TLS/HSTS, certificate pinning, DNSSEC, and traffic monitoring for real protection.
-3. **Detection and response matter as much as prevention.** GitHub, Equifax, and MyEtherWallet show even strong organizations get hit — fast detection and a solid incident response plan limit the damage.
+Conclusion: Key Takeaways for a Network Administrator
+Don't trust the protocols by default. TCP/IP, DNS, and BGP were built for connectivity, not authentication — use safeguards like BCP 38, DNSSEC, and RPKI, and never rely on IP address alone for security.
+Layer your defenses. No single control stops every threat — combine DDoS scrubbing, TLS/HSTS, certificate pinning, DNSSEC, and traffic monitoring for real protection.
+Detection and response matter as much as prevention. GitHub, Equifax, and MyEtherWallet show even strong organizations get hit — fast detection and a solid incident response plan limit the damage.
 ---
