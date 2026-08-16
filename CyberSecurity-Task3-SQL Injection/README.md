@@ -65,8 +65,6 @@ Because `'1'='1'` is always true, the `WHERE` clause no longer filters by a spec
 - Pablo / Picasso
 - Bob / Smith
 
-Screenshot: `screenshots/payload1_or_11.png`
-
 ---
 
 ### Payload 2: Data Extraction via UNION SELECT
@@ -89,7 +87,6 @@ Screenshot: `screenshots/payload1_or_11.png`
 
 Notably, `admin` and `smithy` share the identical hash — this is the well-known MD5 hash of the plaintext word "password," revealing that both accounts use the same weak, easily-cracked password.
 
-Screenshot: `screenshots/payload2_union_select.png`
 
 ---
 
