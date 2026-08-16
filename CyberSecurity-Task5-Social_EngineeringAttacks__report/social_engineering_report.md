@@ -84,21 +84,9 @@ Quid pro quo ("something for something") attacks involve an attacker offering a 
 
 ## Organizational Recommendations: 5-Point Employee Security Awareness Training Checklist
 
-1. **Run recurring, realistic simulated phishing, vishing, and pretexting exercises** — not just annual training — so employees practice recognizing real-world tactics and receive immediate, low-stakes feedback when they fall for a simulation.
-2. **Teach the specific red flags of each attack type** (mismatched sender domains, urgency/authority pressure, unexpected attachments or USB drives, requests to bypass normal approval processes) rather than generic "be careful online" messaging.
-3. **Establish and publicize clear verification procedures** for high-risk actions — wire transfers, password/MFA resets, granting remote access, or sharing sensitive data — including a mandatory callback to a known-good number or a second-person approval step.
-4. **Create a blame-free, easy reporting channel** so employees who suspect they clicked a bad link, plugged in an unknown device, or were targeted by a pretexting call report it immediately rather than staying silent out of fear of punishment.
-5. **Reinforce training with visible leadership buy-in and measurable metrics** (click rates, report rates, time-to-report) tracked over time, since research shows click rates alone don't necessarily fall with training — the goal is faster detection and reporting, paired with technical controls like MFA and least-privilege access that limit the damage of any single successful attack.
+1. **Run recurring, realistic phishing/vishing/pretexting simulations** — not just annual training — with immediate feedback when employees fall for one.
+2. **Teach specific red flags** (mismatched domains, urgency pressure, unexpected attachments/USB drives) instead of generic "be careful online" advice.
+3. **Set clear verification steps for high-risk actions** — wire transfers, MFA resets, remote access — like a mandatory callback or second-person approval.
+4. **Create a blame-free reporting channel** so employees report suspicious clicks or calls immediately instead of staying silent.
+5. **Track metrics and back it with leadership support** (report rates, time-to-report) — pair training with technical controls like MFA to limit damage when someone slips up.
 
----
-
-## References
-
-1. Cybersecurity and Infrastructure Security Agency (CISA). *Avoiding Social Engineering and Phishing Attacks.* cisa.gov.
-2. Verizon. *2024 and 2025 Data Breach Investigations Report (DBIR).* verizon.com/business/resources/reports/dbir/.
-3. SANS Institute. *SANS Reading Room — Information Security White Papers on Social Engineering.* sans.org/reading-room.
-4. New York State Department of Financial Services. *Twitter Investigation Report.* dfs.ny.gov/Twitter_Report (2020).
-5. Threatpost / Dark Reading. *"RSA: SecurID Attack Was Phishing Via an Excel Spreadsheet"* and *"RSA Details SecurID Attack Mechanics."* darkreading.com.
-6. Krebs, Brian. *Krebs on Security* — reporting on the 2020 Twitter hack and related social engineering incidents. krebsonsecurity.com.
-7. MITRE ATT&CK. *Phishing (T1566) and Adversary-in-the-Middle techniques.* attack.mitre.org.
-8. IBM. *Cost of a Data Breach Report* (social-engineering-related breach cost estimates). ibm.com.
