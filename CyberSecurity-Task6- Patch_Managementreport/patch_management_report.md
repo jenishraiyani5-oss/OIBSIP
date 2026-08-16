@@ -77,12 +77,4 @@ Confirm that the patch was actually installed successfully across all intended s
 
 ---
 
-## References
 
-1. National Institute of Standards and Technology (NIST). *Special Publication 800-40 Rev. 4: Guide to Enterprise Patch Management Planning: Preventive Maintenance for Technology.* nvlpubs.nist.gov.
-2. Cybersecurity and Infrastructure Security Agency (CISA). *Indicators Associated With WannaCry Ransomware* and the *Known Exploited Vulnerabilities (KEV) Catalog.* cisa.gov.
-3. MITRE. *CVE Program — Common Vulnerabilities and Exposures Database.* cve.mitre.org.
-4. Apache Software Foundation. *Media Alert: The Apache Software Foundation Confirms Equifax Data Breach Due to Failure to Install Patches Provided for Apache Struts.* news.apache.org.
-5. Ponemon Institute / ServiceNow. *Costs and Consequences of Gaps in Vulnerability Response* (2019 study on unpatched-vulnerability breach statistics).
-6. IBM Security. *Cost of a Data Breach Report* (annual global breach cost statistics).
-7. Verizon. *Data Breach Investigations Report (DBIR)* — vulnerability exploitation and patching-related findings.
