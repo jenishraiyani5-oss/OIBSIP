@@ -99,8 +99,7 @@ In April 2018, attackers executed a BGP hijack against Amazon's Route 53 DNS ser
 
 ## Conclusion: Key Takeaways for a Network Administrator
 
-1. **Assume the underlying protocols are not trustworthy by default.** TCP/IP, DNS, and BGP were designed for connectivity, not authentication — spoofed source addresses, forged DNS responses, and hijacked routes are all possible unless explicit safeguards (BCP 38 filtering, DNSSEC, RPKI) are deployed. Never rely on IP address alone as a security boundary.
-2. **Defense works best in layers, combining network-level and application-level controls.** No single control stops these threats: DDoS scrubbing services, TLS/HSTS enforcement, certificate pinning, DNSSEC, and anomaly-based traffic monitoring each address a different stage of these attacks, and together they reduce both the likelihood of a successful attack and its potential blast radius.
-3. **Real-world incidents show that even well-resourced organizations are vulnerable, so continuous monitoring and rapid response matter as much as prevention.** GitHub, Equifax/Lenovo, and MyEtherWallet were all sophisticated targets, yet each was compromised through a well-understood attack class. Fast detection (e.g., GitHub's traffic-ratio alerting) and pre-established mitigation partnerships (e.g., DDoS scrubbing providers) turned incidents that could have caused prolonged outages or losses into contained events — underscoring that an incident response plan is as important as any single preventive control.
-
+1. **Don't trust the protocols by default.** TCP/IP, DNS, and BGP were built for connectivity, not authentication — use safeguards like BCP 38, DNSSEC, and RPKI, and never rely on IP address alone for security.
+2. **Layer your defenses.** No single control stops every threat — combine DDoS scrubbing, TLS/HSTS, certificate pinning, DNSSEC, and traffic monitoring for real protection.
+3. **Detection and response matter as much as prevention.** GitHub, Equifax, and MyEtherWallet show even strong organizations get hit — fast detection and a solid incident response plan limit the damage.
 ---
