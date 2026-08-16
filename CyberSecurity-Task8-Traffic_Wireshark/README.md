@@ -52,7 +52,7 @@ Screenshot: `Wireshark_install.png`
 2. Started capturing (blue shark-fin "Start" button).
 3. Generated a mix of traffic for at least 2 minutes: browsed an HTTP (non-HTTPS) test site, performed DNS lookups, and let normal background traffic occur.
 4. Stopped the capture after 2+ minutes (red square "Stop" button).
-5. Saved/exported the capture as [`wireshark_capture.pcap`](./wireshark_capture.pcap).
+5. Saved/exported the capture as [`wireshark_capture.pcap`](./wireshark_capture.pcapng).
 
 ---
 
