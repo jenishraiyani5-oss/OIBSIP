@@ -65,7 +65,8 @@ Anywhere                   DENY IN     203.0.113.0/24
 443/tcp (v6)                ALLOW IN    Anywhere (v6)
 ```
 
-Screenshot of the actual output: `screenshots/ufw_status_verbose.png`
+Screenshot of the actual output: <img width="1919" height="1079" alt="ufw_status_verbose" src="https://github.com/user-attachments/assets/c66d4682-5ace-44ea-b288-dc07b97210b5" />
+
 
 
 ## Running the Configuration Script
