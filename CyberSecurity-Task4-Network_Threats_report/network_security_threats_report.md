@@ -104,14 +104,3 @@ In April 2018, attackers executed a BGP hijack against Amazon's Route 53 DNS ser
 3. **Real-world incidents show that even well-resourced organizations are vulnerable, so continuous monitoring and rapid response matter as much as prevention.** GitHub, Equifax/Lenovo, and MyEtherWallet were all sophisticated targets, yet each was compromised through a well-understood attack class. Fast detection (e.g., GitHub's traffic-ratio alerting) and pre-established mitigation partnerships (e.g., DDoS scrubbing providers) turned incidents that could have caused prolonged outages or losses into contained events — underscoring that an incident response plan is as important as any single preventive control.
 
 ---
-
-## References
-
-1. National Institute of Standards and Technology (NIST). *NIST Special Publication 800-61 Rev. 2: Computer Security Incident Handling Guide.* nist.gov.
-2. Cybersecurity and Infrastructure Security Agency (CISA). *Understanding Denial-of-Service Attacks.* cisa.gov.
-3. MITRE ATT&CK. *Network Denial of Service (T1498) and Adversary-in-the-Middle (T1557).* attack.mitre.org.
-4. GitHub Engineering Blog. *"February 28th DDoS Incident Report."* github.blog/news-insights/company-news/ddos-incident-report/ (2018).
-5. Krebs, Brian. *Krebs on Security* — reporting and analysis of DDoS, spoofing, and DNS-hijacking incidents. krebsonsecurity.com.
-6. SANS Institute. *SANS Reading Room — Information Security White Papers.* sans.org/reading-room.
-7. TechTarget. *"What is IP Spoofing?"* and *"What is a Man-in-the-Middle Attack (MitM)?"* techtarget.com.
-8. RiskIQ / MyEtherWallet Community Report. *"A Message to Our Community — A Response to the DNS Hack of April 24th, 2018."* (BGP hijack of Amazon Route 53 targeting MyEtherWallet.com).
