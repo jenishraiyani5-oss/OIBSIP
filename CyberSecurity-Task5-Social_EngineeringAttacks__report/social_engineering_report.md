@@ -82,11 +82,4 @@ Quid pro quo ("something for something") attacks involve an attacker offering a 
 
 ---
 
-## Organizational Recommendations: 5-Point Employee Security Awareness Training Checklist
-
-1. **Run recurring, realistic phishing/vishing/pretexting simulations** — not just annual training — with immediate feedback when employees fall for one.
-2. **Teach specific red flags** (mismatched domains, urgency pressure, unexpected attachments/USB drives) instead of generic "be careful online" advice.
-3. **Set clear verification steps for high-risk actions** — wire transfers, MFA resets, remote access — like a mandatory callback or second-person approval.
-4. **Create a blame-free reporting channel** so employees report suspicious clicks or calls immediately instead of staying silent.
-5. **Track metrics and back it with leadership support** (report rates, time-to-report) — pair training with technical controls like MFA to limit damage when someone slips up.
 
