@@ -1,8 +1,6 @@
 # SQL Injection Assessment — Executive Summary
 
-**Prepared by:** Raiyani Jenish Arvinbhai
-**Track:** Security Analyst
-**Related task:** Task 9 · Task 9: SQL Injection on DVWA (Medium Security)
+**Related task:** Task 9 : SQL Injection on DVWA (Medium Security)
 **Environment:** Internal lab test (DVWA training application)
 
 ---
