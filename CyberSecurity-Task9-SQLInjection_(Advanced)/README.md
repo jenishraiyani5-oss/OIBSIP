@@ -68,6 +68,7 @@ does not reflect testing of any production or third-party system.*
 ├── README.md
 ├── sql_injection_report .md
 ├── sqllog
+├── sql_injection_exploit.sh
 ├── Screenshort
   ├──Database -1
   ├──Database -2
