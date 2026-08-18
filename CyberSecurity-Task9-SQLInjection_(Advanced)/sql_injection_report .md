@@ -183,8 +183,4 @@ SQL with f-strings, string concatenation, or `.format()`.)
 
 
 
-## 6. References
 
-- OWASP Top 10 — A03:2021 Injection
-- PortSwigger Web Security Academy — SQL Injection
-- DVWA documentation (security level source code comparison: Low vs Medium vs High)
