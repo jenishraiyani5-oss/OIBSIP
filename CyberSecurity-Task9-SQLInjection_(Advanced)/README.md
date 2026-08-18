@@ -1,6 +1,7 @@
 # SQL Injection Assessment — Executive Summary
 
 **Related task:** Task 9 : SQL Injection on DVWA (Medium Security)
+
 **Environment:** Internal lab test (DVWA training application)
 
 ---
