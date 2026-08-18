@@ -2,8 +2,6 @@
 
 ## Task 9 : SQL Injection on DVWA (Medium Security)
 
-**Environment:** Internal lab test (DVWA training application)
-
 ---
 
 ## What We Found
