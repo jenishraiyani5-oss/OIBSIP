@@ -21,7 +21,7 @@ checking or isolating it. This means a malicious user could insert their own
 database commands instead of a normal search value — effectively tricking
 the database into handing over information it shouldn't.
 
-## Risk Level: ** Medium **
+## Risk Level: Medium 
 
 ## Business Impact
 
