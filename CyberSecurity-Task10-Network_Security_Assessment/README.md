@@ -53,6 +53,17 @@ All testing was performed against a private, self-owned lab environment
 production or third-party systems involved. This repository is for
 educational purposes only.
 
-## Author
+## Repository Structure
 
-Jenish Raiyani — B.Sc. IT (Cyber Security), Gujarat University
+```
+├── README.md
+├── network_security_assessment.md
+├── nikto_results.txt
+├── nmap_results.txt
+├── wireshark_capture1.pcapng
+├── Screenshort
+  ├──filter  ARP
+  ├──filter  HTTP
+  ├──filter  DNS
+ 
+```
