@@ -18,7 +18,7 @@ CVSS-based severity scoring.
 | File | Description |
 |---|---|
 | [`network_security_assessment.md`](network_security_assessment.md) | Full report: scope, executive summary, technical findings per phase, findings register, and remediation roadmap |
-| `nmap_results.txt` | Raw Nmap scan output (`-sS -sV -O`) |
+| `nikto_results.txt` | Raw Nmap scan output (`-sS -sV -O`) |
 | `nikto_results.txt` | Raw Nikto web vulnerability scan output |
 | `wireshark_capture.pcap` | ~5.5-minute packet capture of live traffic |
 | `screenshots/` | Terminal and Wireshark evidence referenced in the report |
