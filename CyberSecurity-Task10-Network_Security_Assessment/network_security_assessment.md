@@ -130,9 +130,9 @@ traffic on this segment, exactly as Nikto's missing `strict-transport-security`
 finding (NIKTO-05) predicts structurally.
 
 **Screenshot evidence:**
-- `wireshark_http_filter.png` — HTTP filter showing repeated 404 responses from 192.168.179.155, with the full plaintext response (Apache banner, headers, HTML body) visible in the packet bytes pane
-- `wireshark_dns_filter.png` — DNS filter showing 138 unencrypted queries/responses, including the raw query bytes for `content-signature-2.cdn.mozilla.net`
-- `wireshark_arp_filter.png` — ARP filter showing consistent, non-conflicting IP-to-MAC mappings across the capture window
+- `filter HTTP.png` — HTTP filter showing repeated 404 responses from 192.168.179.155, with the full plaintext response (Apache banner, headers, HTML body) visible in the packet bytes pane
+- `filter DNS.png` — DNS filter showing 138 unencrypted queries/responses, including the raw query bytes for `content-signature-2.cdn.mozilla.net`
+- `filter ARP.png` — ARP filter showing consistent, non-conflicting IP-to-MAC mappings across the capture window
 
 ---
 
