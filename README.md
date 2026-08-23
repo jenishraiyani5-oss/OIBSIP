@@ -10,7 +10,6 @@ This repository contains my complete task submissions for the **Oasis Infobyte C
 
 ---
 
-## 👤 Author
 
 ---
 
