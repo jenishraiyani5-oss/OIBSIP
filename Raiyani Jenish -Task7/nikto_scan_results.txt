@@ -1,0 +1,272 @@
+========================================================
+NIKTO SCAN RESULTS - Task 7: Vulnerability Scanning
+========================================================
+Target: http://localhost/dvwa (127.0.0.1:80)
+Platform: Linux/Unix (Apache/2.4.68 Debian)
+Scanner: Nikto v2.6.0
+Scan Date: 2026-08-16
+========================================================
+
+
+## Raw Scan Output (from `nikto -h http://localhost/dvwa`)
+
+- Nikto v2.6.0
+---------------------------------------------------------------------------
++ Target IP:          127.0.0.1
++ Target Hostname:    localhost
++ Target Port:        80
++ Platform:           Linux/Unix
++ Start Time:         2026-08-16 03:04:34 (GMT-4)
+---------------------------------------------------------------------------
++ Server: Apache/2.4.68 (Debian)
++ ERROR: Failed to check for updates: 403
++ No CGI Directories found (use '-C all' to force check all possible dirs). CGI tests skipped.
++ [013587] /dvwa/: Suggested security header missing: referrer-policy.
++ [013587] /dvwa/: Suggested security header missing: content-security-policy.
++ [013587] /dvwa/: Suggested security header missing: strict-transport-security.
++ [013587] /dvwa/: Suggested security header missing: x-content-type-options.
++ [013587] /dvwa/: Suggested security header missing: permissions-policy.
++ [750500] /dvwa/config/: Directory indexing found.
++ [000998] /dvwa/config/: Configuration information may be available remotely.
++ [750500] /dvwa/tests/: Directory indexing found.
++ [001896] /dvwa/tests/: This might be interesting.
++ [750500] /dvwa/database/: Directory indexing found.
++ [002727] /dvwa/database/: Database directory found.
++ [750500] /dvwa/docs/: Directory indexing found.
++ [006333] /dvwa/login.php: Admin login page/section found.
++ [006530] /dvwa/.git/index: Git Index file may contain directory listing information.
++ [006609] /dvwa/.git/HEAD: Git HEAD file found. Full repo details may be present.
++ [006807] /dvwa/.git/config: Git config file found. Infos about repo details may be present.
+
+
+========================================================
+FINDINGS SUMMARY TABLE (BY SEVERITY)
+========================================================
+
+| # | Severity | Finding |
+|---|----------|---------|
+| 1 | HIGH | .git repository exposed (.git/HEAD, .git/config, .git/index) |
+| 2 | HIGH | Directory indexing enabled on /dvwa/config/ |
+| 3 | MEDIUM | Configuration information may be available remotely |
+| 4 | MEDIUM | Directory indexing enabled on /dvwa/database/, /dvwa/tests/, /dvwa/docs/ |
+| 5 | MEDIUM | Missing Content-Security-Policy header |
+| 6 | MEDIUM | Missing Strict-Transport-Security (HSTS) header |
+| 7 | LOW | Missing X-Content-Type-Options header |
+| 8 | LOW | Missing Referrer-Policy header |
+| 9 | LOW | Missing Permissions-Policy header |
+| 10 | LOW | Admin login page found (/dvwa/login.php) |
+| 11 | INFORMATIONAL | Server version disclosed (Apache/2.4.68 Debian) |
+| 12 | INFORMATIONAL | Update-check failed (403) — could not confirm latest Apache version |
+
+
+========================================================
+DETAILED FINDINGS - WHAT / WHY / FIX
+========================================================
+
+--------------------------------------------------------
+[HIGH] Finding: Exposed .git Repository
+(/dvwa/.git/index, /dvwa/.git/HEAD, /dvwa/.git/config)
+--------------------------------------------------------
+What it is: The application's .git folder (its version control
+history) is publicly accessible via the web server.
+
+Why it is a risk: An exposed .git directory can allow an attacker
+to reconstruct the entire source code, including historical
+commits that may contain hardcoded credentials, API keys,
+database connection strings, or old vulnerable code paths. Tools
+like "git-dumper" can automatically download an entire repository
+from an exposed .git folder. This is one of the most damaging
+misconfigurations Nikto can find, as it can lead to full source
+code and secrets disclosure.
+
+How to fix it:
+  - Remove the .git directory from the web-accessible document
+    root entirely, or move the deployed code outside of version
+    control before publishing.
+  - Add a web server rule to deny access to any ".git" path
+    (e.g., in Apache: "RedirectMatch 404 /\.git").
+  - Rotate any credentials/secrets that may have ever existed in
+    the repository's history.
+
+--------------------------------------------------------
+[HIGH] Finding: Directory Indexing Enabled - /dvwa/config/
+--------------------------------------------------------
+What it is: Browsing to /dvwa/config/ without a specific file
+returns a full listing of the directory's contents instead of a
+403/404 error.
+
+Why it is a risk: This directory typically holds the application's
+configuration file (config.inc.php), which may contain database
+credentials, secret keys, or other sensitive settings. Directory
+listing makes it trivial for an attacker to discover and download
+these files.
+
+How to fix it:
+  - Disable directory indexing for this path
+    ("Options -Indexes" in Apache).
+  - Explicitly deny direct web access to the /config/ folder,
+    or move sensitive config files outside the public web root.
+  - Ensure config files are not readable via direct URL request
+    regardless of indexing (e.g., block .php config files from
+    direct execution/download where not needed).
+
+--------------------------------------------------------
+[MEDIUM] Finding: Configuration Information May Be Available Remotely
+--------------------------------------------------------
+What it is: Nikto flags that configuration-related information
+tied to /dvwa/config/ may be retrievable over the network.
+
+Why it is a risk: Exposed configuration details (database names,
+internal paths, credentials) give an attacker a head start on
+further attacks, such as direct database access or targeted
+exploitation of known application internals.
+
+How to fix it:
+  - Restrict access to configuration files at the web server
+    level (deny direct HTTP access to *.inc.php / config files).
+  - Store secrets in environment variables or a secrets manager
+    instead of a web-accessible config file where possible.
+
+--------------------------------------------------------
+[MEDIUM] Finding: Directory Indexing Enabled - /dvwa/database/, 
+/dvwa/tests/, /dvwa/docs/
+--------------------------------------------------------
+What it is: Same directory-listing issue as above, affecting the
+database, tests, and docs folders.
+
+Why it is a risk: /dvwa/database/ may expose database setup
+scripts or schema details; /dvwa/tests/ and /dvwa/docs/ can reveal
+internal testing notes or documentation not meant for public
+users, aiding reconnaissance.
+
+How to fix it:
+  - Disable directory indexing site-wide ("Options -Indexes") 
+    unless a specific folder genuinely needs to be browsable.
+  - Remove or restrict access to development artifacts (tests,
+    docs, database setup scripts) in any publicly deployed
+    environment.
+
+--------------------------------------------------------
+[MEDIUM] Finding: Missing Content-Security-Policy (CSP) Header
+--------------------------------------------------------
+What it is: The server does not send a Content-Security-Policy
+header in its HTTP responses.
+
+Why it is a risk: CSP is one of the strongest browser-side
+defenses against Cross-Site Scripting (XSS) and data-injection
+attacks, since it restricts which scripts/resources a page is
+allowed to load or execute. Without it, a successful XSS
+vulnerability elsewhere in the app has a much larger impact.
+
+How to fix it:
+  - Add a Content-Security-Policy header appropriate to the
+    application (e.g., "default-src 'self'"), then refine it
+    based on what resources the app legitimately needs to load.
+
+--------------------------------------------------------
+[MEDIUM] Finding: Missing Strict-Transport-Security (HSTS) Header
+--------------------------------------------------------
+What it is: The server does not send a Strict-Transport-Security
+header.
+
+Why it is a risk: Without HSTS, browsers will not automatically
+force HTTPS on future visits, leaving a window for downgrade or
+man-in-the-middle attacks that intercept the initial unencrypted
+request (relevant once/if this site is served over HTTPS).
+
+How to fix it:
+  - Serve the site over HTTPS and add:
+    "Strict-Transport-Security: max-age=31536000; includeSubDomains"
+
+--------------------------------------------------------
+[LOW] Finding: Missing X-Content-Type-Options Header
+--------------------------------------------------------
+What it is: The server does not send
+"X-Content-Type-Options: nosniff".
+
+Why it is a risk: Without this header, some browsers may
+"MIME-sniff" a response into a different content type than
+declared, which can be abused in certain XSS attack scenarios.
+
+How to fix it:
+  - Add "X-Content-Type-Options: nosniff" to the server's default
+    response headers.
+
+--------------------------------------------------------
+[LOW] Finding: Missing Referrer-Policy Header
+--------------------------------------------------------
+What it is: The server does not send a Referrer-Policy header.
+
+Why it is a risk: Without a defined policy, the browser's default
+behavior may leak the full referring URL (which can include
+sensitive query parameters or internal paths) to third-party sites
+when a user clicks an outbound link.
+
+How to fix it:
+  - Add "Referrer-Policy: strict-origin-when-cross-origin" (or a
+    stricter policy) to the server's response headers.
+
+--------------------------------------------------------
+[LOW] Finding: Missing Permissions-Policy Header
+--------------------------------------------------------
+What it is: The server does not send a Permissions-Policy header.
+
+Why it is a risk: Without this header, the site does not
+explicitly restrict which browser features (camera, microphone,
+geolocation, etc.) pages can request, which is a defense-in-depth
+gap rather than a direct exploit path.
+
+How to fix it:
+  - Add a Permissions-Policy header disabling unused browser
+    features, e.g.:
+    "Permissions-Policy: geolocation=(), camera=(), microphone=()"
+
+--------------------------------------------------------
+[LOW] Finding: Admin Login Page Found (/dvwa/login.php)
+--------------------------------------------------------
+What it is: Nikto identified a discoverable admin/login page at a
+predictable path.
+
+Why it is a risk: On its own, a login page isn't a vulnerability —
+but its discoverability makes it an easy target for brute-force
+login attempts, credential stuffing, or default-credential testing
+(DVWA itself ships with well-known default creds: admin/password).
+
+How to fix it:
+  - Enforce strong password policies and account lockout /
+    rate-limiting on login attempts.
+  - Consider adding multi-factor authentication for admin access.
+  - Change any default credentials immediately in a real
+    deployment (not applicable to this intentionally vulnerable
+    lab app, but essential in production).
+
+--------------------------------------------------------
+[INFORMATIONAL] Finding: Server Version Disclosed
+--------------------------------------------------------
+What it is: The HTTP Server header reveals "Apache/2.4.68
+(Debian)".
+
+Why it is a risk: Version disclosure isn't directly exploitable,
+but it speeds up an attacker's reconnaissance by letting them
+quickly check for version-specific known vulnerabilities.
+
+How to fix it:
+  - Set "ServerTokens Prod" and "ServerSignature Off" in Apache's
+    configuration to suppress version details in responses.
+
+--------------------------------------------------------
+[INFORMATIONAL] Finding: Update Check Failed (403)
+--------------------------------------------------------
+What it is: Nikto's own attempt to check whether a newer Apache
+version is available returned an HTTP 403 (Forbidden), so it could
+not confirm patch status.
+
+Why it is a risk: Not a vulnerability itself — this is a note about
+scan completeness, meaning the Apache version/patch level should
+be manually verified rather than assumed current.
+
+How to fix it:
+  - Manually confirm the installed Apache version is fully patched
+    against the latest security advisories using the vendor's
+    official channels.
+
